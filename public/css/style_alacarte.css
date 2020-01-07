@@ -1,0 +1,12 @@
+body{
+    //background-color:#929492;
+
+}
+
+div.scroll {
+    margin-top:20px;
+    height: 80vh;
+    overflow-x: hidden;
+    overflow-x: auto;
+    text-align:justify;
+}
