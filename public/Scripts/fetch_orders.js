@@ -19,7 +19,7 @@ $(document).ready(function() {
 
     $( "#myform" ).submit(function( event ) {
         event.preventDefault();
-        $("myform").css("display", "none");
+        $("#myform").css("display", "none");
     const form1 = document.getElementById("myform");
     firebase.auth().signInWithEmailAndPassword(form1.em.value, form1.pa.value).then(function (user) {
         // user signed in
