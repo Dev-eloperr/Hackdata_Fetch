@@ -20,7 +20,7 @@ $(document).ready(function() {
     $( "#myform" ).submit(function( event ) {
         event.preventDefault();
         $("#myform").css("display", "none");
-        $("#dvData").css("display", "block");
+        $("#dvData").css("display", "inline-block");
     const form1 = document.getElementById("myform");
     firebase.auth().signInWithEmailAndPassword(form1.em.value, form1.pa.value).then(function (user) {
         // user signed in
@@ -31,15 +31,18 @@ $(document).ready(function() {
             querySnapshot.docChanges().forEach(function (change) {
                 orders.push(change.doc.data());
                 if (change.type === "added") {
-                    document.getElementById('orders-wrapper').insertAdjacentHTML('beforeend', '<tr id="' + change.doc.data().uniqueid + '">' +
-                        '<th class="count"></th>'
-                        + '<th>' + change.doc.data().teamname + '</th><th>' + change.doc.data().email1 + '</th><th>' + change.doc.data().email2 + '</th><th>' + change.doc.data().email3 + '</th> ' +
-                        + '<th>' + change.doc.data().name1 + '</th><th>' + change.doc.data().name2 + '</th><th>' + change.doc.data().name3 + '</th>' +
-                        + '<th>' + change.doc.data().college1 + '</th><th>' + change.doc.data().college2 + '</th><th>' + change.doc.data().college3 + '</th>' +
-                        + '<th>' + change.doc.data().number1 + '</th><th>' + change.doc.data().number2 + '</th><th>' + change.doc.data().number3 + '</th></tr>');
+                    document.getElementById('orders-wrapper').insertAdjacentHTML('beforeend',
+                        '<tr id="' + change.doc.data().uniqueid + '">'
+                        + '<td class="count"></td>' + '<td>' + change.doc.data().teamname + '</td>'+ '<td>' + change.doc.data().track + '</td>'
+                        + '<td>' + change.doc.data().email1   + '</td><td>' + change.doc.data().email2   + '</td><td>' + change.doc.data().email3   + '</td>'
+                        + '<td>' + change.doc.data().name1    + '</td><td>' + change.doc.data().name2    + '</td><td>' + change.doc.data().name3    + '</td>'
+                        + '<td>' + change.doc.data().college1 + '</td><td>' + change.doc.data().college2 + '</td><td>' + change.doc.data().college3 + '</td>'
+                        + '<td>' + change.doc.data().number1  + '</td><td>' + change.doc.data().number2  + '</td><td>' + change.doc.data().number3  + '</td>' +
+                        '</tr>'
+                    );
                     count = count + 1;
                     if (count === 1)
-                        document.getElementById('spin').remove();
+                        $('#spin').remove();
                 }
                 reset_count();
             });
