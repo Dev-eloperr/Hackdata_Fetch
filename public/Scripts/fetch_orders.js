@@ -38,6 +38,7 @@ $(document).ready(function() {
                         + '<td>' + change.doc.data().name1    + '</td><td>' + change.doc.data().name2    + '</td><td>' + change.doc.data().name3    + '</td>'
                         + '<td>' + change.doc.data().college1 + '</td><td>' + change.doc.data().college2 + '</td><td>' + change.doc.data().college3 + '</td>'
                         + '<td>' + change.doc.data().number1  + '</td><td>' + change.doc.data().number2  + '</td><td>' + change.doc.data().number3  + '</td>' +
+                        + '<td>' + change.doc.data().github1  + '</td><td>' + change.doc.data().github2  + '</td><td>' + change.doc.data().github3  + '</td>' +
                         '</tr>'
                     );
                     count = count + 1;
