@@ -25,7 +25,7 @@ $(document).ready(function() {
     firebase.auth().signInWithEmailAndPassword(form1.em.value, form1.pa.value).then(function (user) {
         // user signed in
         const db_ref = db.collection('applicants');
-        db_ref.onSnapshot(function (querySnapshot) {
+        db_ref.orderBy("timestamp").onSnapshot(function (querySnapshot) {
             var orders = [];
 
             querySnapshot.docChanges().forEach(function (change) {
@@ -42,8 +42,7 @@ $(document).ready(function() {
                         + '</tr>'
                     );
                     count = count + 1;
-                    if (count === 1)
-                        $('#spin').remove();
+
                 }
                 reset_count();
             });
